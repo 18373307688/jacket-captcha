@@ -1,11 +1,45 @@
-var ValidationImage = function () {};
+var force2number = function (value, defaultValue) {
+    if (typeof value == 'number') return value;
+    if (typeof value == 'string') {
+        if (/^\d+$/.test(value)) return Number(value);
+        return defaultValue;
+    }
+    return defaultValue;
+}
+
+var ValidationImage = function () {
+    this.width = 72;
+    this.height = 36;
+    this.lineNumber = 0;
+    this.charNumber = 4;
+};
+var update = function (o1, o2) {
+    o1 = o1 || {}, o2 = o2 || {};
+    for (var k in o2) {
+        if (o1.hasOwnProperty(k)) {
+            if (typeof o2[k] == 'string') {
+                if (/^\d+$/.test(o2[k])) {
+                    o2[k] = Number(o2[k]);
+                } else {
+                    continue;
+                }
+            }
+            o1[k] = o2[k];
+        }
+    }
+    return o1;
+}
 
 ValidationImage.prototype.create = function (options) {
-    var options = options || {};
-    var CANVAS_WIDTH = !options.width || options.width < 72 ? 72 : options.width,
-        CANVAS_HEIGHT = !options.height || options.height < 36 ? 36 : options.height,
-        LINE_NUMS = options.lineNumber,
+    update(this, options);
+/*
+
+    var CANVAS_WIDTH = !options.width || options.width < this.width ? this.width : force2number(options.width, this.width),
+        CANVAS_HEIGHT = !options.height || options.height < this.height ? this.height : force2number(options.height, this.height),
+        LINE_NUMS = options.lineNumber || this.lineNumber,
         CHAR_NUMS = options.charNumber || 4;
+
+    if (typeof LINE_NUMS == 'string' && /^\d+$/.test(LINE_NUMS)) LINE_NUMS = Number(LINE_NUMS);  
 
     var Canvas = require('canvas'),
         Image = Canvas.Image,
@@ -62,9 +96,10 @@ ValidationImage.prototype.create = function (options) {
     ctx.rotate(deg);
     ctx.fillText(char, pos.x, pos.y);
 
-    if (LINE_NUMS && typeof LINE_NUMS == 'number') while (LINE_NUMS--) strokeLine();
+    while (LINE_NUMS--) strokeLine();
 
     return canvas.toDataURL();
+    */
 }
 
 module.exports = new ValidationImage;

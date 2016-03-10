@@ -1,8 +1,15 @@
 {
     "name": "validation-image",
     "version": "1.0.0",
-    "description": "Image factory that generate validation pictures",
+    "description": "Image factory that generate validation pictures.",
+    "main": "index.js",
     "dependencies": {
         "canvas": "1.3.12"
+    },
+    "devDependencies": {
+        "mocha": "2.4.5"
+    },
+    "scripts": {
+        "test": "mocha test/*.js"
     }
 }
