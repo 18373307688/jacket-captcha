@@ -1,9 +1,9 @@
 var ValidationImage = function () {};
-// http://www.programering.com/a/MzN1YDMwATE.html
+
 ValidationImage.prototype.create = function (options) {
     var options = options || {};
-    var CANVAS_WIDTH = options.width || 72,
-        CANVAS_HEIGHT = options.height || 36,
+    var CANVAS_WIDTH = !options.width || options.width < 72 ? 72 : options.width,
+        CANVAS_HEIGHT = !options.height || options.height < 36 ? 36 : options.height,
         LINE_NUMS = options.lineNumber,
         CHAR_NUMS = options.charNumber || 4;
 
@@ -39,7 +39,7 @@ ValidationImage.prototype.create = function (options) {
             x: Math.random() * CANVAS_WIDTH,
             y: Math.random() * CANVAS_HEIGHT
         };
-        // 线
+        // line
         ctx.beginPath();
         ctx.strokeStyle = getItem(colors);
         ctx.moveTo(lineStart.x, lineStart.y);
@@ -55,7 +55,7 @@ ValidationImage.prototype.create = function (options) {
         pos = deg > 0 ? pos[0] : pos[1],
         baseLine = deg > 0 ? 'top' : 'bottom';
 
-    // 字符
+    // chars
     ctx.font = fontSize + ' ' + fontFamily;
     ctx.fillStyle = color;
     ctx.textBaseLine = baseLine;
