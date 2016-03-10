@@ -1,0 +1,8 @@
+{
+    "name": "validation-image",
+    "version": "1.0.0",
+    "description": "Image factory that generate validation pictures",
+    "dependencies": {
+        "canvas": "1.3.12"
+    }
+}
