@@ -1,41 +1,41 @@
 {
-    "name": "jacket-captcha",
-    "version": "1.0.0",
-    "description": "A captcha that develop by Jacket Chen.",
-    "main": "index.js",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/chenjuneking/jacket-captcha.git"
-    },
-    "keywords": [
-        "captcha",
-        "jacket captcha",
-        "node captcha",
-        "validate code",
-        "authentication image",
-        "authentication code"
-    ],
-    "author": {
-        "name": "jacketchen",
-        "email": "342115615@qq.com",
-        "url": "https://github.com/chenjuneking"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/chenjuneking/jacket-captcha/issues"
-    },
-    "engines": {
-        "node": ">=0.10"
-    },
-    "homepage": "https://github.com/chenjuneking/jacket-captcha",
-    "dependencies": {
-        "canvas": "1.3.12"
-    },
-    "devDependencies": {
-        "mocha": "2.4.5",
-        "chai": "3.5.0"
-    },
-    "scripts": {
-        "test": "mocha test/*.js"
-    }
+  "name": "jacket-captcha",
+  "version": "1.0.3",
+  "description": "A captcha that develop by Jacket Chen.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chenjuneking/jacket-captcha.git"
+  },
+  "keywords": [
+    "captcha",
+    "jacket captcha",
+    "node captcha",
+    "validate code",
+    "authentication image",
+    "authentication code"
+  ],
+  "author": {
+    "name": "jacketchen",
+    "email": "342115615@qq.com",
+    "url": "https://github.com/chenjuneking"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chenjuneking/jacket-captcha/issues"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "homepage": "https://github.com/chenjuneking/jacket-captcha",
+  "dependencies": {
+    "canvas": "1.3.12"
+  },
+  "devDependencies": {
+    "mocha": "2.4.5",
+    "chai": "3.5.0"
+  },
+  "scripts": {
+    "test": "mocha test/*.js"
+  }
 }
