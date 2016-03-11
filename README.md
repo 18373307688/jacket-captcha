@@ -1,6 +1,10 @@
 # validation-image
 > Image factory that generate validation pictures&codes.
 
+## Sample
+The generated validation image looks like this:
+![alt tag](https://raw.githubusercontent.com/chenjuneking/validation-image/master/validation-image-sample.png)
+
 ## Usage
 
 First, install `validation-image`.
