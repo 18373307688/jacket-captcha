@@ -1,16 +1,16 @@
 {
-    "name": "validation-image",
+    "name": "jacket-captcha",
     "version": "1.0.0",
-    "description": "Image factory that generate validation pictures&codes.",
+    "description": "A captcha that develop by Jacket Chen.",
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "git://github.com/chenjuneking/validation-image.git"
+        "url": "git://github.com/chenjuneking/jacket-captcha.git"
     },
     "keywords": [
-        "validation image",
-        "validate image",
-        "validate picture",
+        "captcha",
+        "jacket captcha",
+        "node captcha",
         "validate code",
         "authentication image",
         "authentication code"
@@ -22,12 +22,12 @@
     },
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/chenjuneking/validation-image/issues"
+        "url": "https://github.com/chenjuneking/jacket-captcha/issues"
     },
     "engines": {
         "node": ">=0.10"
     },
-    "homepage": "https://github.com/chenjuneking/validation-image",
+    "homepage": "https://github.com/chenjuneking/jacket-captcha",
     "dependencies": {
         "canvas": "1.3.12"
     },

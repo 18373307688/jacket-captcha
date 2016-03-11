@@ -36,17 +36,17 @@ var update = function (o1, o2) {
     return o1;
 };
 
-var ValidationImage = function () {
+var Captcha = function () {
     this.width = 72;
     this.height = 36;
     this.lineNumber = 0;
     this.charNumber = 4;
 };
-ValidationImage.prototype.config = function (options) {
+Captcha.prototype.config = function (options) {
     update(this, options);
     return this;
 };
-ValidationImage.prototype.create = function () {
+Captcha.prototype.create = function () {
     var Canvas = require('canvas'),
         Image = Canvas.Image,
         canvas = new Canvas(this.width, this.height),
@@ -98,19 +98,19 @@ ValidationImage.prototype.create = function () {
     this.base64URL = canvas.toDataURL();
     return this;
 };
-ValidationImage.prototype.getCode = function () {
+Captcha.prototype.getCode = function () {
     if (!this.code) {
-        console.warn('ValidationImage warning: cann\'t getCodes before ValidationImage#create() has been called.');
+        console.warn('Captcha warning: cann\'t getCodes before Captcha#create() has been called.');
         this.code = '';
     }
     return this.code;
 };
-ValidationImage.prototype.getBase64URL = function () {
+Captcha.prototype.getBase64URL = function () {
     if (!this.base64URL) {
-        console.warn('ValidationImage warning: cann\'t getBase64URL before ValidationImage#create() has been called.');
+        console.warn('Captcha warning: cann\'t getBase64URL before Captcha#create() has been called.');
         this.base64URL = '';
     }
     return this.base64URL;
 };
 
-module.exports = new ValidationImage;
+module.exports = new Captcha;
