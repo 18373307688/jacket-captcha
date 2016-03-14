@@ -1,6 +1,6 @@
 {
   "name": "jacket-captcha",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A captcha that develop by Jacket Chen.",
   "main": "index.js",
   "repository": {
