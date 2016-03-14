@@ -37,7 +37,7 @@ var captcha = require('jacket-captcha');
 var captchaObj = captcha.config({
     width: 70,      // image's width
     height: 35,     // image's height
-    lineNumber: 6,  // lines number that would be drawn into the image in case of prevent the program automatically discern the code on the image
+    lineNumber: 6,  // the number of lines that would be drawn into the image in case of prevent the program automatically discern the code on the image
     charNumber: 4   // the length of code
 }).create();
 
@@ -46,6 +46,12 @@ var code = captchaObj.code;
 
 // get the base64 url of the captcha image
 var base64URL = captchaObj.base64URL;
+
+// save the captcha image, you could specify the image's name and where to store it
+captchaObj.save({
+  dirname: 'a/b/c',
+  filename: 'captcha'
+});
 
 // Do something...
 

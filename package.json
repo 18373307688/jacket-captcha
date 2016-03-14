@@ -1,6 +1,6 @@
 {
   "name": "jacket-captcha",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A captcha that develop by Jacket Chen.",
   "main": "index.js",
   "repository": {
@@ -36,6 +36,7 @@
     "chai": "3.5.0"
   },
   "scripts": {
-    "test": "mocha test/*.js"
+    "test": "mocha test/*.js",
+    "test:clean": "rm -rf ./a && rm -rf ./captcha"
   }
 }

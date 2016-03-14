@@ -1,3 +1,6 @@
+var fs = require('fs');
+var path = require('path');
+
 var getChar = function (chars) {
     var i = Math.ceil(Math.random() * (chars.length - 1));
     return chars[i];
@@ -35,6 +38,28 @@ var update = function (o1, o2) {
     }
     return o1;
 };
+// Thanks to pollys'mkdir-p: https://github.com/pillys/mkdir-p.git
+var mkdir = function (dist, handler) {
+    dist = path.resolve(dist);
+    fs.exists(dist, function (isExists) {
+        if (!isExists) {
+            mkdir(path.dirname(dist), function () {
+                fs.mkdir(dist, function (err) {
+                    handler && handler(err);
+                })
+            })
+        } else {
+            handler && handler(null);
+        }
+    })
+}
+var mkdirSync = function (dist) {
+    dist = path.resolve(dist);
+    if (!fs.existsSync(dist)) {
+        mkdir.sync(path.dirname(dist));
+        fs.mkdirSync(dist);
+    }
+}
 
 var Captcha = function () {
     this.width = 72;
@@ -97,6 +122,26 @@ Captcha.prototype.create = function () {
 
     this.base64URL = canvas.toDataURL();
     return this;
+};
+Captcha.prototype.save = function (options) {
+    if (!this.base64URL) return console.error('Cann\'t save the image before create, please called Captcha#create() first.');
+
+    options = options || {};
+    dirname = options.dirname || './captcha';
+    filename = options.filename || 'jacket-captcha';
+    var ext = this.base64URL.match(/^data:image\/(\w+);base64,/)[1];
+
+    var base64Data = this.base64URL.replace(/^data:image\/\w+;base64,/, '');
+    var dataBuffer = new Buffer(base64Data, 'base64');
+
+    mkdir(dirname, function (err) {
+        if (err) return console.error('Error in making directory: ' + dirname);
+        var file = path.join(dirname, filename + '.' + ext);
+        fs.writeFile(file, dataBuffer, function (err) {
+            if (err) return console.error('Error in making file: ' + file);
+            // console.log(file + ' successfully saved!');
+        })
+    })
 };
 Captcha.prototype.getCode = function () {
     if (!this.code) {
