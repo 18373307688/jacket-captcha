@@ -56,7 +56,7 @@ var mkdir = function (dist, handler) {
 var mkdirSync = function (dist) {
     dist = path.resolve(dist);
     if (!fs.existsSync(dist)) {
-        mkdir.sync(path.dirname(dist));
+        mkdirSync(path.dirname(dist));
         fs.mkdirSync(dist);
     }
 }
